@@ -1,0 +1,31 @@
+<div>
+  <h2>Home</h2>
+
+  <!-- Lista użytkowników -->
+  <div>
+    <h3>Users</h3>
+    <ul>
+      <li *ngFor="let user of users" (click)="selectUser(user)">
+        {{ user.username }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Sekcja czatu z wybranym użytkownikiem -->
+  <div *ngIf="selectedUser">
+    <h3>Chat with {{ selectedUser.username }}</h3>
+
+    <!-- Wyświetlanie wiadomości -->
+    <div *ngFor="let message of messages">
+      <div [ngClass]="{'my-message': message.sender.username === loggedInUser.username, 'other-message': message.sender.username !== loggedInUser.username}">
+        <strong>{{ message.sender.username === loggedInUser.username ? 'You' : message.sender.username }}:  </strong>
+        <span>{{ message.content }}  </span>
+        <small>({{ message.timestamp | date:'short' }})</small>
+      </div>
+    </div>
+
+    <!-- Pole do wprowadzania wiadomości -->
+    <input [(ngModel)]="messageContent" placeholder="Type a message..." />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>

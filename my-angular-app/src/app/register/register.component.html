@@ -1,0 +1,24 @@
+<!-- register.component.html -->
+<div class="register-container">
+  <h2>Rejestracja</h2>
+
+  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+    <div>
+      <label for="username">Nazwa użytkownika</label>
+      <input id="username" formControlName="username" required>
+      <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
+        <small>Wprowadź nazwę użytkownika</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="password">Hasło</label>
+      <input id="password" formControlName="password" required type="password">
+      <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+        <small>Hasło musi mieć co najmniej 8 znaków</small>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid">Zarejestruj</button>
+  </form>
+</div>

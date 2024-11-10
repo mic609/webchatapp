@@ -5,7 +5,11 @@ import { MessageService } from '../services/message.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { User } from '../models/User';
+import { EMPTY_USER } from '../models/EmptyUser';
 import { Message } from '../models/Message';
+import { catchError, map } from 'rxjs';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -19,10 +23,10 @@ export class HomeComponent{
   selectedUser!: User;
   messages: Message[] = [];
   messageContent: string = '';
-  loggedInUser!: User;
+  loggedInUser: User = EMPTY_USER;
   // private messagesSubscription!: Subscription;
 
-  constructor(private userService: UserService, private messageService: MessageService) {
+  constructor(private userService: UserService, private messageService: MessageService, private authService: AuthService) {
     this.loadUsers();
     this.loadLoggedInUser();
   }
@@ -64,5 +68,17 @@ export class HomeComponent{
         this.loadMessages();
       });
     }
+  }
+
+  logout() {
+    this.authService.logout().subscribe({
+      next: () => {
+        this.loggedInUser = EMPTY_USER
+        console.log('Użytkownik został wylogowany');
+      },
+      error: (error) => {
+        console.error('Błąd przy wylogowywaniu:', error);
+      },
+    });
   }
 }

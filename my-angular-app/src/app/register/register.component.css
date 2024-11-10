@@ -1,0 +1,76 @@
+/* Stylizacja głównego kontenera */
+.register-container {
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f2f2f2;
+  }
+  
+  /* Nagłówek */
+  h2 {
+    color: #333;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+  }
+  
+  /* Formularz */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Styl dla inputów */
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+  
+  /* Focus na inputach */
+  input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  /* Stylizacja dla komunikatów o błędach */
+  small {
+    color: #ff0000;
+    font-size: 0.875rem;
+  }
+  
+  /* Przycisk */
+  button[type="submit"] {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Dostosowanie marginesów i paddingów dla labeli */
+  label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  /* Grupa formularza dla równych marginesów */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  

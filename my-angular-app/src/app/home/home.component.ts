@@ -71,14 +71,6 @@ export class HomeComponent{
   }
 
   logout() {
-    this.authService.logout().subscribe({
-      next: () => {
-        this.loggedInUser = EMPTY_USER
-        console.log('Użytkownik został wylogowany');
-      },
-      error: (error) => {
-        console.error('Błąd przy wylogowywaniu:', error);
-      },
-    });
+    this.authService.logOut();
   }
 }

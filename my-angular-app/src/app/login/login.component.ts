@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { catchError, map } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ import { catchError, map } from 'rxjs';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -24,17 +25,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  login() {
+  onSignIn() {
     if (this.loginForm.valid) {
-      this.http.post('http://localhost:8080/api/auth/login', this.loginForm.value).subscribe({
-        next: (response: any) => {
-          localStorage.setItem('token', response.token);
-          this.router.navigate(['/home']);
-        },
-        error: (error) => {
-          console.error('Login failed', error);
-        }
-      });
+      this.authService.login(this.loginForm.value.username, this.loginForm.value.password)
     }
   }
 }

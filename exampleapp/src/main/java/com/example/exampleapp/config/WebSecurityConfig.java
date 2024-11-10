@@ -1,5 +1,6 @@
 package com.example.exampleapp.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
@@ -20,20 +21,17 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.sql.DataSource;
 
 @EnableWebSecurity
 @Configuration
 public class WebSecurityConfig {
 
-    private JwtRequestFilter jwtRequestFilter; // Iniekcja filtru JWT
+    private final JwtTokenVerifier jwtTokenVerifier;
 
     @Autowired
-    @Lazy
-    public void setJwtRequestFilter(JwtRequestFilter jwtRequestFilter) {
-        this.jwtRequestFilter = jwtRequestFilter;
+    public WebSecurityConfig(JwtTokenVerifier jwtTokenVerifier) {
+        this.jwtTokenVerifier = jwtTokenVerifier;
     }
 
     @Bean
@@ -61,7 +59,7 @@ public class WebSecurityConfig {
                 .requestMatchers("/api/auth/**").permitAll()
                 // .requestMatchers("/api/users/all-except-current").permitAll()
                 .anyRequest().authenticated())
-            .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+            .addFilterBefore(jwtTokenVerifier, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 

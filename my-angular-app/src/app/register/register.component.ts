@@ -18,21 +18,27 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm = this.fb.group({
       username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(8)]]
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      confirmPassword: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
 
   onSubmit(): void {
       if (this.registerForm.valid) {
-        const { username, password } = this.registerForm.value;
-        
-        this.authService.register(username, password).subscribe(response => {
-          if (response) {
-            console.log('Rejestracja zakończona sukcesem');
-          } else {
-            console.error('Rejestracja nie powiodła się');
-          }
-        });
+        const { username, password, confirmPassword } = this.registerForm.value;
+
+        if(password == confirmPassword){
+          this.authService.register(username, password).subscribe(response => {
+            if (response) {
+              console.log('Rejestracja zakończona sukcesem');
+            } else {
+              console.error('Rejestracja nie powiodła się');
+            }
+          });
+        }
+        else{
+          console.error('Hasło musi się zgadzać');
+        }
       }
   }
 }

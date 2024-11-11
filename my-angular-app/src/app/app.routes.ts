@@ -4,11 +4,12 @@ import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
 import { NewPaswordRequireComponent } from './new-pasword-require/new-pasword-require.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full'},
     { path: 'login', component: LoginComponent },
-    { path: 'home', component: HomeComponent },
+    { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'register', component: RegisterComponent },
     { path: 'newPasswordRequire', component: NewPaswordRequireComponent},
 ];

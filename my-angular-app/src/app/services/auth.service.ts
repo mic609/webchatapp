@@ -152,9 +152,9 @@ export class AuthService {
     const cognitoIdentityServiceProvider = new AWS.CognitoIdentityServiceProvider({
       region: 'us-east-1',
       credentials: {
-        accessKeyId: 'ASIA5N6XPWXWQW2INUWD',
-        secretAccessKey: '/y6Z98IgyROEQzo4pZ7qbsMsEbjj04pAXh88emzI',
-        sessionToken: 'IQoJb3JpZ2luX2VjEBAaCXVzLXdlc3QtMiJHMEUCIEwbYOiIK29KAEPj/vWiCuBIphp8SnZRmkU+A1f0kPj/AiEAoS23vRIbxLpTUZINIctSfGWCtTqqcSQFQqUavzmkpMsqsgIImf//////////ARABGgw5MjMzMzMwMTUwMjEiDIvoeWHfFJylu134+SqGAoadjTpzuP9pE29TF5lwEkRgnqQS1F6AM7TWS4p4SlG1feyUzR3ud65s18MpNyJJoLPX2LYPQMSJZkOol1hvXqooivdWKm1ELbEB3agCXM3ofvv/8HT4eOmCv9XinkjptDPRr/h8FG1ivCXf12scZdWtr1Ae2TTDnkadurlZeuYlWB9A8gviRgmwxDZFoifKIJng8oCmEAbw/LTRxe98uWR2vM94f6oelAou3rNZHTqF/C/237LQ2BHrpYTBn8Jw/lKAHd2DG0Uip9YrgockYupGYP5nqJ7p8zC2RHoTogFpmoCKKq9XvuvWyWY1BnJYdC0jWxSIEUPMjQn4BQlD5gnxPIg257MwhYnFuQY6nQHrtE+Rx285PXkkegEEEvIjv87S9sBdhtZ6/Wh8oUhrAch6S/+cisWwnKWZqs8vcFIUwm7obCwlQ78Hg6cto7eLdyba4NjWDZNt/XKSaSg76fJeIh4vEzynGCtSgejGQq0EOKW39ADlwZP2BRcjOkxpWFePouaHrMN+Nto8DfqKiHU/59lmkqRtiNjWdILxYxAbWYfg/NEd6Hj+7kYG'
+        accessKeyId: 'ASIA5N6XPWXWRZYCME7N',
+        secretAccessKey: 'L9liZHJaMnWeYUvw8k9C2eKY86v2cWwxIg1aoLPP',
+        sessionToken: 'IQoJb3JpZ2luX2VjEBwaCXVzLXdlc3QtMiJIMEYCIQD8AFzxm1F0tm+HfbsOlXaUYmgSKVq+vOtjyvKAv4NXIQIhAKHT4bGWk8IM0u9tbrOq8kEu4hmANVxEcEi7xiVyUMtIKrICCKX//////////wEQARoMOTIzMzMzMDE1MDIxIgza00TAMsgM/vesa1kqhgKQWz9dbCv0Vb5Ac8FdoDhFihTeARcbIyorCurvevAnPPYHxwz/RIm9VTsfc6tDyG0cxDjmK+H/OK8gxg96LdcL2M/k9e6SXHkWW5OHeP1S4gYgleDGP64McDhqhk7pe9yRakDbTMBRYvIIu54IaTVZTVTX1tbzMB9QiSHMI5FO5ADLz/eVhGey3/E6IhOIFqUUEm9mtPAp49S/4l1vwLVldXUalS9YVHcpx1NkLbYJLdknrAZ7RLqdPz/dh4+SHuFJlGwIdas2++QU2RMIUbvmUy2QUooajVFK9AT5ETicAwj4h/Qriwg9RW2KUuPlqsgqFlPMO3pce87OU+p1TK4wi/byeN+OMO3ox7kGOpwBPpN7khiOPkUTP9MVwiD1cB5weUqO677FHA2zZOjFn8FX1C3Vm0gQgewi8korMG6M13JWCu8CUSCfo0vgYxXJ2C81qhaojY+r4p5xLV9DI6gTLniXAvn4gFO7diAnU+Cxm7UXMtN6AR0e5kjJ5S+NDETo/F9ykIRWU6fxgHNuzl5tGAUEylYIQzmc8z6acs4bl8XqOPWEuVs520cV'
       }
     });
 
@@ -175,6 +175,7 @@ export class AuthService {
           reject(err);
         } else {
           resolve(data);
+          this.router.navigate(["login"]);
         }
       });
     });

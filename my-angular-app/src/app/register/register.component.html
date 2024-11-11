@@ -19,6 +19,14 @@
       </div>
     </div>
 
+    <div>
+      <label for="confirmPassword">Potwierdź Hasło</label>
+      <input id="confirmPassword" formControlName="confirmPassword" required type="password">
+      <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confrimPassword')?.touched">
+        <small>Hasło musi mieć co najmniej 8 znaków</small>
+      </div>
+    </div>
+
     <button type="submit" [disabled]="registerForm.invalid">Zarejestruj</button>
   </form>
 </div>

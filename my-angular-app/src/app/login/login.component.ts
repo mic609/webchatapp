@@ -30,4 +30,8 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.loginForm.value.username, this.loginForm.value.password)
     }
   }
+
+  onRegisterRedirect() {
+    this.router.navigate(['/register']);
+  }
 }

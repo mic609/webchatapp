@@ -78,14 +78,16 @@ public class WebSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
+        String ipAddress = getPublicIpAddress();
         
-        config.addAllowedOrigin("*");
+        config.addAllowedOrigin("http://" + ipAddress + ":4200");
+        config.addAllowedOrigin("http://localhost:4200");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config); // Działa dla wszystkich endpointów
+        source.registerCorsConfiguration("/**", config);
 
         return source;
     }
@@ -101,5 +103,24 @@ public class WebSecurityConfig {
             http.getSharedObject(AuthenticationManagerBuilder.class);
         authenticationManagerBuilder.userDetailsService(userDetailsService(null)).passwordEncoder(passwordEncoder());
         return authenticationManagerBuilder.build();
+    }
+
+    public static String getPublicIpAddress() {
+        try {
+            URI uri = new URI("http://checkip.amazonaws.com");
+            
+            HttpClient client = HttpClient.newHttpClient();
+            
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(uri)
+                    .build();
+            
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            
+            return response.body().trim();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Unable to get public IP";
+        }
     }
 }

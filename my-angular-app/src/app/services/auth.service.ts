@@ -6,6 +6,7 @@ import { catchError, map, Observable, of } from 'rxjs';
 import * as AWS from 'aws-sdk';
 import { environment } from '../../environments/environment';
 import { cognito } from '../models/Cognito';
+import { AppConfigService } from './app.config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,14 @@ export class AuthService {
   userPool: any;
   cognitoUser: any;
   username: string = "";
+  cognito: any;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private appConfigService: AppConfigService) {
+    this.cognito = {
+      production: false,
+      cognitoUserPoolId: this.appConfigService.cognitoUserPoolId,
+      cognitoAppClientId: this.appConfigService.cognitoAppClientId
+    };
   }
 
   createHeaders(): HttpHeaders {

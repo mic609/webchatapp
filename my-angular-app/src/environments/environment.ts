@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    apiUrl: `<ec2_ip>:8080`
+    apiUrl: `${window.location.hostname}:8080`
   };

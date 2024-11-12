@@ -30,7 +30,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @Component
 public class JwtTokenVerifier extends OncePerRequestFilter {
 
-    @Value("${cognito.jwks-url}")
+    @Value("${cognito.jwkt-url}")
     private String jwksUrl;
 
     private RSAPublicKey publicKey;

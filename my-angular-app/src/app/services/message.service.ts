@@ -9,7 +9,7 @@ import SockJS from 'sockjs-client';
   providedIn: 'root'
 })
 export class MessageService {
-  private apiUrl = 'http://backend:8080/api/messages';
+  private apiUrl = 'http://54.146.4.77:8080/api/messages';
 
   constructor(private http: HttpClient) {}
 

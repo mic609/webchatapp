@@ -12,7 +12,7 @@ import * as AWS from 'aws-sdk';
 })
 export class AuthService {
 
-  private apiUrl = 'http://backend:8080/api/auth/register';
+  private apiUrl = 'http://54.146.4.77:8080/api/auth/register';
   userPool: any;
   cognitoUser: any;
   username: string = "";
@@ -210,12 +210,4 @@ export class AuthService {
       this.router.navigate(["login"]);
     }
   }
-
-  getSecretHash(username: string, clientId: string, clientSecret: string): string {
-    const message = username + clientId;
-    const secretHash = CryptoJS.HmacSHA256(message, clientSecret);
-    console.log("HMAC SHA-256:", secretHash.toString(CryptoJS.enc.Base64));
-    return secretHash.toString(CryptoJS.enc.Base64);
-  }
-
 }

@@ -21,6 +21,10 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import javax.sql.DataSource;
 
 @EnableWebSecurity
@@ -66,7 +70,9 @@ public class WebSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("http://localhost:4200");
+        String ipAddress = getLocalIpAddress();
+        
+        config.addAllowedOrigin("http://" + ipAddress + ":4200");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         config.setAllowCredentials(true);
@@ -88,5 +94,15 @@ public class WebSecurityConfig {
             http.getSharedObject(AuthenticationManagerBuilder.class);
         authenticationManagerBuilder.userDetailsService(userDetailsService(null)).passwordEncoder(passwordEncoder());
         return authenticationManagerBuilder.build();
+    }
+
+    private String getLocalIpAddress() {
+        try {
+            InetAddress inetAddress = InetAddress.getLocalHost();
+            return inetAddress.getHostAddress();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+            return "localhost";
+        }
     }
 }

@@ -42,8 +42,8 @@ export class AuthService {
 
   register(username: string, password: string): Observable<any> {
     let poolData = {
-      UserPoolId: cognito.cognitoUserPoolId,
-      ClientId: cognito.cognitoAppClientId,
+      UserPoolId: this.cognito.cognitoUserPoolId,
+      ClientId: this.cognito.cognitoAppClientId,
     };
 
     this.userPool = new CognitoUserPool(poolData);
@@ -105,8 +105,8 @@ export class AuthService {
     });
 
     let poolData = {
-      UserPoolId: cognito.cognitoUserPoolId,
-      ClientId: cognito.cognitoAppClientId,
+      UserPoolId: this.cognito.cognitoUserPoolId,
+      ClientId: this.cognito.cognitoAppClientId,
     };
 
     this.username = username;
@@ -166,8 +166,8 @@ export class AuthService {
     });
 
     let poolData = {
-      UserPoolId: cognito.cognitoUserPoolId,
-      ClientId: cognito.cognitoAppClientId,
+      UserPoolId: this.cognito.cognitoUserPoolId,
+      ClientId: this.cognito.cognitoAppClientId,
     };
 
     const params = {
@@ -206,8 +206,8 @@ export class AuthService {
   // Logout 
   logOut() {
     let poolData = {
-      UserPoolId: cognito.cognitoUserPoolId,
-      ClientId: cognito.cognitoAppClientId,
+      UserPoolId: this.cognito.cognitoUserPoolId,
+      ClientId: this.cognito.cognitoAppClientId,
     };
     this.userPool = new CognitoUserPool(poolData);
     this.cognitoUser = this.userPool.getCurrentUser();

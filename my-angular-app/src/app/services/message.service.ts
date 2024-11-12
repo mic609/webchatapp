@@ -4,12 +4,13 @@ import { Observable, scan, Subject } from 'rxjs';
 import { Message } from '../models/Message'
 import { Client, Stomp } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
-  private apiUrl = 'http://54.146.4.77:8080/api/messages';
+  private apiUrl = `http://${environment.apiUrl}/api/messages`;
 
   constructor(private http: HttpClient) {}
 

@@ -22,7 +22,6 @@ public class UserController {
 
     @GetMapping("/all-except-current")
     public List<User> getAllUsersExceptCurrent() {
-        System.out.println("Endpoint /all-except-current was called");
         return userService.findAllExceptCurrentUser();
     }
 

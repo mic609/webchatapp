@@ -12,7 +12,7 @@ import * as AWS from 'aws-sdk';
 })
 export class AuthService {
 
-  private apiUrl = 'http://127.0.0.1:8080/api/auth/register';
+  private apiUrl = 'http://backend:8080/api/auth/register';
   userPool: any;
   cognitoUser: any;
   username: string = "";

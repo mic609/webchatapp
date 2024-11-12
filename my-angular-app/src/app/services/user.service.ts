@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8080/api/users'; // Zmień na odpowiedni adres API
+  private apiUrl = 'http://44.198.109.215:8080/api/users'; // Zmień na odpowiedni adres API
 
   constructor(private http: HttpClient) {}
 

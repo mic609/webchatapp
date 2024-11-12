@@ -12,7 +12,7 @@ import * as AWS from 'aws-sdk';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8080/api/auth/register';
+  private apiUrl = 'http://44.198.109.215:8080/api/auth/register';
   userPool: any;
   cognitoUser: any;
   username: string = "";
@@ -152,9 +152,9 @@ export class AuthService {
     const cognitoIdentityServiceProvider = new AWS.CognitoIdentityServiceProvider({
       region: 'us-east-1',
       credentials: {
-        accessKeyId: 'ASIA5N6XPWXW3NLIJ5E7',
-        secretAccessKey: 'AChVuvatQ/D/IbB9GRtp1PLyWcb91biW5KPJcmvd',
-        sessionToken: 'IQoJb3JpZ2luX2VjECUaCXVzLXdlc3QtMiJHMEUCIFjdO4Foh4kaXiYX6t39Fxtbp9VW64IPWhAVA9BoMxfzAiEA4C+/McDqfVNvP2ZBNrUYpb+FV49grPSDky6lauSEaOoqsgIIrv//////////ARABGgw5MjMzMzMwMTUwMjEiDMhNPJdVFrjwjB8IDyqGAioHVsel8KjQqcT4a/QnFjBqGLXS2QaieKHAEHxv1I4uOUcTCZewL0LvPpOx0N8WmgQFkNxmwTmNWQo2zHO+B8l+7nfFFLRAk6JR5buqTM0NjweiaBO6K3WxK0YEcyN4LlJb7Fwk1kuAcMD1rmULnqsxV8vwO6jB2K5z++FgAC0eEka5c1Sr4mK7Hf9xaZdz/kd1euVzqZyJK34FDa9qbJa7yYWST3Nyp43PtHuY3ldlpAPzcCQGctlIB2raJ7UoLO+K5Bxw7VBRQ04uTd2hWinEhhlKiNAJimRX15wtRAbAMW+Ix53hGUDs098TKS3759AcyN2QrlOF81xsTmavjihIHRjAGFowrdfJuQY6nQEC6Hbr7KrfqVjKDKp+4Ed64FAci850MtjCpb8/q+B6MnPFF+DHgjpLeuAp4L+dWlXyA4zvhHGPL6VnuRteh7Hi8cWDtKMWNxupnpfmOn2bUJK0Bqh5D6lSNOfVvDXVkm8XoukOgWloQXMXLlSungEO5nwj0bEMQdyntQ0lMVKSOjCdc+udaiSNXOP9yArZTV/3wMH7TLXCGPvC0MwV'
+        accessKeyId: 'ASIA5N6XPWXWT5PR6FT5',
+        secretAccessKey: 'zplfgIMv7F+28UVvBe4aarhM9VjW9DqIpt8BPEqu',
+        sessionToken: 'IQoJb3JpZ2luX2VjECkaCXVzLXdlc3QtMiJHMEUCIQCAEiY5T3iTOpvFmE5j8PNxOIk1KdYKj8Hh6K2s0qG4agIgEGTv4hZ2CLioYJoRpUtFDr9e+yX1G9sDcomGdMjMDJUqsgIIsv//////////ARABGgw5MjMzMzMwMTUwMjEiDAHxwL8OifWVrV2DhSqGAjP5BX2dQq2JAxu8cIvVKy2kExbTXHjhQTVd3wwFjMa2uSOeIF/dmzb7xNiSZplE8ArYerEq3QMbyAN7BfXB0q/lxQDYwuF9ff9ao87A1My7goFc9z9kwwphuWV7aD0fBMUmCXK9NrBLf/UpYp8basbt7IOPc9mhxU1UIvqX6JsSWz5WxX8ozFzyIlmuIMhS6uAmhU7NPFULOfI+UfKyzlM/s30UauPWCza+NFv0pXwieQv9b2IIjQszzi63XXg9ValDlqsXuihHqtShubaQyO8w0os8FxSv5lVBa6xW1bP2gZWXjP7waXsL/1SHRLS8HvWUDYnw33i4zeNCXvUrb1LXL6EDPxAwxsrKuQY6nQEBi5O20xzzvPeDbiY7Wn8UDhDlUnwPXahoxVV24aBmnapSUJPaBiWZDSnkYBMUptU/8vDTX/cmhyhP5kdT42HSjqh5jRm3ZcQgjhOJIbGtLJuPymkO2BG8MujUOGyvqumhrDoYVU2ovZWvn71uvL6WOmqClo+xD/LTbJlpcel3QCk5nUbpFo2KfpDsxsAPJNYeKu4LPxDHZRjnC8Va'
       }
     });
 

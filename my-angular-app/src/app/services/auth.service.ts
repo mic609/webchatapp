@@ -5,7 +5,6 @@ import { AuthenticationDetails, CognitoUser, CognitoUserPool } from 'amazon-cogn
 import { catchError, map, Observable, of } from 'rxjs';
 import * as AWS from 'aws-sdk';
 import { environment } from '../../environments/environment';
-import { cognito } from '../models/Cognito';
 import { AppConfigService } from './app.config.service';
 
 @Injectable({

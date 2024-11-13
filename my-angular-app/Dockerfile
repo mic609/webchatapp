@@ -28,9 +28,6 @@ COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 # Skopiuj zbudowaną aplikację Angular do katalogu Nginx
 COPY --from=build /my-angular-app/dist/my-angular-app/browser /usr/share/nginx/html
 
-# Zmień uprawnienia plików w katalogu Nginx, aby były dostępne do odczytu
-# RUN chmod -R 644 /usr/share/nginx/html
-
 # Otwórz port, na którym będzie działać Nginx
 EXPOSE 80
 

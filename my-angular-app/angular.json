@@ -28,7 +28,7 @@
               {
                 "glob": "config.json",
                 "input": "src/assets",
-                "output": "/assets"
+                "output": "assets"
               }
             ],
             "styles": [

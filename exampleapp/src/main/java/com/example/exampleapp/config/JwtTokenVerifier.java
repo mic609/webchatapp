@@ -11,6 +11,7 @@ import java.util.Base64;
 import java.util.List;
 
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -30,10 +31,13 @@ import jakarta.servlet.http.HttpServletResponse;
 @Component
 public class JwtTokenVerifier extends OncePerRequestFilter {
 
-    @Value("${cognito.jwkt-url}")
+    private CognitoConfig cognitoConfig;
     private String jwksUrl;
-
     private RSAPublicKey publicKey;
+
+    public JwtTokenVerifier(CognitoConfig cognitoConfig){
+        this.cognitoConfig = cognitoConfig;
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException, ServletException {
@@ -67,6 +71,8 @@ public class JwtTokenVerifier extends OncePerRequestFilter {
 
     private RSAPublicKey getPublicKeyFromJWKS(HttpServletRequest request) throws IOException {
         RestTemplate restTemplate = new RestTemplate();
+
+        this.jwksUrl = cognitoConfig.getJwksUrl();
         String jwks = restTemplate.getForObject(jwksUrl, String.class);
 
         JSONObject jwksJson = new JSONObject(jwks);

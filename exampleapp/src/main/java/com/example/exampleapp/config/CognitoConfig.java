@@ -5,7 +5,7 @@ public class CognitoConfig {
     private String userpoolid;
     private String clientid;
     private String region;
-    private String jwksurl;
+    private String jwksUrl;
 
     public String getUserpoolid() {
         return userpoolid;
@@ -32,10 +32,10 @@ public class CognitoConfig {
     }
 
     public String getJwksUrl() {
-        return jwksurl;
+        return jwksUrl;
     }
 
     public void setJwksUrl(String jwksUrl) {
-        this.jwksurl = jwksUrl;
+        this.jwksUrl = jwksUrl;
     }
 }

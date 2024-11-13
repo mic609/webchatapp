@@ -73,7 +73,7 @@ public class JwtTokenVerifier extends OncePerRequestFilter {
         RestTemplate restTemplate = new RestTemplate();
 
         this.jwksUrl = cognitoConfig.getJwksUrl();
-        String jwks = restTemplate.getForObject(jwksUrl, String.class);
+        String jwks = restTemplate.getForObject(this.jwksUrl, String.class);
 
         JSONObject jwksJson = new JSONObject(jwks);
         String kid = getKidFromToken(request);

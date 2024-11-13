@@ -13,7 +13,7 @@ export class AppConfigService {
 
   loadConfig() {
     return firstValueFrom(
-      this.http.get('/assets/config.json')
+      this.http.get('assets/config.json')
     ).then(config => {
       this.config = config;
     });

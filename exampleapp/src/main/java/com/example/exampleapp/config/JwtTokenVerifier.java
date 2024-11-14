@@ -3,16 +3,13 @@ package com.example.exampleapp.config;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.KeyFactory;
-import java.security.PublicKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.RSAPublicKeySpec;
-import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 import java.util.List;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;

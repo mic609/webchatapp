@@ -40,10 +40,11 @@ import javax.sql.DataSource;
 public class WebSecurityConfig {
 
     private final JwtTokenVerifier jwtTokenVerifier;
+    private final FrontendIpAddress frontendIpAdress;
 
-    @Autowired
-    public WebSecurityConfig(JwtTokenVerifier jwtTokenVerifier) {
+    public WebSecurityConfig(JwtTokenVerifier jwtTokenVerifier, FrontendIpAddress frontendIpAdress) {
         this.jwtTokenVerifier = jwtTokenVerifier;
+        this.frontendIpAdress = frontendIpAdress;
     }
 
     @Bean
@@ -81,6 +82,7 @@ public class WebSecurityConfig {
         String ipAddress = getPublicIpAddress();
         
         config.addAllowedOrigin("http://" + ipAddress + ":4200");
+        config.addAllowedOrigin("http://" + frontendIpAdress.getFrontendIpAdress() + ":4200");
         config.addAllowedOrigin("http://localhost:4200");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");

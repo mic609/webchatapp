@@ -34,11 +34,6 @@ export class AuthService {
     });
   }
 
-  // register(username: string, password: string): Observable<any> {
-  //   const user = { username, password };
-  //   return this.http.post(this.apiUrl, user);
-  // }
-
   register(username: string, password: string): Observable<any> {
     let poolData = {
       UserPoolId: this.cognito.cognitoUserPoolId,
@@ -75,27 +70,6 @@ export class AuthService {
       });
     });
   }
-
-  // login(username: string, password: string): Observable<any> {
-  //   return this.http.post('https://cognito-idp.us-east-1.amazonaws.com/us-east-1_ZizQHVoRj', {
-  //     AuthParameters: {
-  //       USERNAME: username,
-  //       PASSWORD: password
-  //     },
-  //     AuthFlow: 'USER_PASSWORD_AUTH',
-  //     ClientId: 'YOUR_COGNITO_CLIENT_ID'
-  //   }).pipe(
-  //     map((response: any) => {
-  //       const token = response.AuthenticationResult.IdToken;
-  //       localStorage.setItem('token', token);
-  //       this.router.navigate(['/home']);
-  //     }),
-  //     catchError(error => {
-  //       console.error('Błąd logowania z Cognito:', error);
-  //       throw error;
-  //     })
-  //   );
-  // }
 
   login(username: any, password: any) {
     let authenticationDetails = new AuthenticationDetails({
@@ -158,9 +132,9 @@ export class AuthService {
     const cognitoIdentityServiceProvider = new AWS.CognitoIdentityServiceProvider({
       region: 'us-east-1',
       credentials: {
-        accessKeyId: 'ASIA5N6XPWXWUOGI5NNW',
-        secretAccessKey: 'AqTuR4NcvxIe9WaB6FZTurlXs3pkN1R5VUKO2N5J',
-        sessionToken: 'IQoJb3JpZ2luX2VjEE8aCXVzLXdlc3QtMiJGMEQCIC/dPU2c4gSX3nO3d00bQ23MEayqzMaT/fK2PV4IvgGpAiBbh1NWB0yKaA8Qj+IzTgw4SJAh3SAia91bktsvGJIUEiqyAgjY//////////8BEAEaDDkyMzMzMzAxNTAyMSIMubVk5lZoUs8r2e15KoYCzuPaud/wy5TS8iRyFGGS6ipPPheYc9wOabRECUtqazKWCdQvDycO0Z9HlKCHpzboGGG+wlLiSMz9UotUrfxT+MWhd3QWJkv2KuOrsT5FVjvTBGSaBCZPS00SKUGx7778NPRAp1CezFpYtq9U81iEZZzphZeTeh5g4LNO72abgua1fe7ik0R4PtwmHV4NbL/mWPEzPMZfXsbl+/SZFFSW3lHqI6YVTKFSWG5J1qTPcPi1WJSurdB7uP1+M7DrBqEd+4mvXNnBpZM8juOVe7zGZOSMQFpecSi6swl2XdjKdW33kqPjZo6Y7YB5NrxvFL86pYkPuBQ7jckBlaYWYZ7jrblSMcfn5TC68tK5BjqeAXArh+wOn0nvEcQwZay92CWGTyBM6evVBLk6opeoqTS9gnNVqzog3i/rO+0zgNCClr5tlSmH/VVN5ie9ZxSrxKF9Nwh3WS+jr18e+oXC26lxNnORC3T9bYTCOcT2jhUlxVfsKKzeB6fkPJP9SCUDnWY3Im4iGgwTNpjIKgw06O+Hjrhl/xna67YsMhiyQCQpB1oodzNxbluTKKjaztcP'
+        accessKeyId: 'ASIA5N6XPWXW7L4BL66L',
+        secretAccessKey: 'IK5W4011TwbSNHBtHvXp0dVyfSr8ueNa8R22DmIa',
+        sessionToken: 'IQoJb3JpZ2luX2VjEGUaCXVzLXdlc3QtMiJIMEYCIQDtMfp245MxQ8aZe0kSe7CoYQWGTC2sEo6aNnpFJFCoiwIhAIjomaAi61Wkrxmov8B1aj6R/IqlqGQHoX7xZ4U5YB1gKrICCO7//////////wEQARoMOTIzMzMzMDE1MDIxIgwXD6VJ3j8pBUpurs4qhgIso/4OH274+CAby8pr9lblYV2GajNuTPUePqTIKV/EM/M5IhUBl8B1moEPpxDvU63TARYZhdYag+VwKm6qpti/s+hlk+t17PtFYeA6ct2OxfCBfLFAfcDwEmcD3/dPZrV13e2MkhwT9Z0I376RU9kA/oXMXv3Dy8mQUyjvGM2bjttgNJIUbOjaQkv2qpXPzisiLG34+iivZdpAYe3+n3W6bUMXIj7fErIZLIdo2aj6fcYukiPnFup5hEemJvuzz+H3pelkVrifOedrLx/r5TCUd0GvD/TGEoTS1Z+CGhJ5c42k2w5yIHsond8Y4enlWY3G+oHMaKCeMcb80MO4nMnd2C2Rhja8MKfs17kGOpwBsuGLgL/5NFYkQn600Tnee0PLF5yjihH7vmvTSg0WD2K1LXEA1VcJEfcrEYGvzkExIdyJxgB2u1lK7EJRlE8ABLXa91euAhUG/BtMVNgratV+TebG/VKxI0YfmvXr3dg+Hd1uyg93ceo/ReaIfQreki5eqriH4rFswa7hlviiHqECHJ7WSqI8mHGWY8vMCwdIow0xptn6bfomhjAX'
       }
     });
 
@@ -186,21 +160,6 @@ export class AuthService {
       });
     });
   }
-
-
-  // logout() {
-  //   const headers = this.createHeaders();
-  //   return this.http.post('http://localhost:8080/api/auth/logout', {headers}).pipe(
-  //     catchError(error => {
-  //       console.error('Błąd wylogowania z backendu:', error);
-  //       return [];
-  //     }),
-  //     map(() => {
-  //       localStorage.removeItem('token');
-  //       this.router.navigate(['/login']);
-  //     })
-  //   );
-  // }
 
   // Logout 
   logOut() {

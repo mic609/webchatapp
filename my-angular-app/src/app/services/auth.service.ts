@@ -132,9 +132,9 @@ export class AuthService {
     const cognitoIdentityServiceProvider = new AWS.CognitoIdentityServiceProvider({
       region: 'us-east-1',
       credentials: {
-        accessKeyId: 'ASIA5N6XPWXWRW3QW2G5',
-        secretAccessKey: 'JNkyjojl6/cFZoga4NVFdNZX7wBnjT9jxG61c9H2',
-        sessionToken: 'IQoJb3JpZ2luX2VjEH0aCXVzLXdlc3QtMiJHMEUCIFnVR+y6MExMtMXj2gKWAd8nPfEu61U3z+F/OQftHaZ5AiEAztIafynXNxq3jXRHfBOpTJbfLqSYqoKE/+novhxDmOQqqQIIFhABGgw5MjMzMzMwMTUwMjEiDC36p5oRqJs5yBN2PSqGAvQooazUpu9Q3ltKzrg3zC9mCizQzIrXt+hai9kPGk8IUpga8xS16nzb4Sy9DPN+3fO5TD9Yl7tnhlao4UtOngczGyzD8jMqKXY2se5zjR5cxfQ/Zi2m6/BSgiA4wTa8y8rGRbtT5jWO7inZ2xmVnetK+wTrvchkYFcdB9wLDcNA48UWSIHE04YGjUpixVotcaDrtzeMPBv36T51MQsSdtrwUvjNmRhD0N7T9EjQYhO1Ezic314HgkMvr0vcBxpTdg/Mz5+kY5JbRpPBworvD786o3X1HGhCsdPTxA74GkMdZC6OFQUjVXYxKv3U8dUuXgaWzgkvoh9w1ylTnX4nW5cFKM5cmUkwhIHduQY6nQHhhOG1ZKys79nCgzP93BslYj9HjOjlIbj9tCwuIhOVo3QErtKuLrl+TB/5hdF/MMZI3yfcIJntkCSgpCC896/9geA6I7PFMxUbCddOkmF6hkmuTsRXO4/GEi6lMSFDPtCus14sUDYIeFmWLZy8xzzkcu+ooDeI2M44yhSg6YSe4HkCxyUyY0rGKKPWjz99+NjB5GrsyP4PvI1rHH8E'
+        accessKeyId: 'ASIA5N6XPWXWRLBCAFGZ',
+        secretAccessKey: 'rYVVgd6M6l2GBi8E0mOabbTP5S3LJtGijxN1Lf+d',
+        sessionToken: 'IQoJb3JpZ2luX2VjELD//////////wEaCXVzLXdlc3QtMiJHMEUCIG6DbgF5pjPTQ+p6c+nLXLr9vl47Owl7aM4klgZqYYorAiEA4HwcBEzGvKS+MtLoxOPzEROxIe8O0SlIl5yiOT+wMhEqqQIISRABGgw5MjMzMzMwMTUwMjEiDCa68adMwa+YbDJj0iqGAvnxFehlRSqUMdgCQZbgJAUj37BKbEwHXYw95jzQrLdO2EPb5L4JGkKP+OmZa10nlt7R/SCF9D0JciqKWpkkEzTV+Jnbu9Y40LDLkgztDDfL5tXIfpnlM5cOLpYayK+sR7J5+f+bxM2hj7iBMHGlMCuBDEdtGP8QLt/MIowi0bAwUGq6Ncgkd3arGJQ+or0XUqBAc1v0gTWkqIeBAKcVaIFYobH1Fd8WwpZASeZaXeWOuvzlfslFHmUQWUAKJmVRIPwkW8yy6ltMv4iv8U72Rakd0TmU7+vP3XbA0CbVeZtwVSE5gLDYvVpDEuq+6p/1TnfM4N2WuA9ox1U5nTcSKEx+Dnu5f2ow4ZrouQY6nQFIg6gK8HK19fhnPrsoQoRCLGw9bKO2j4h4DO8cXRToTCB/N5oPDQndop2Yi+DNQzH54zMuBPmXJNbXZaTYaszmtZAh5PrzN4wV+yIE/yV0iIIV//a26DfOlXXC4+21zjSobClHHYjjTF/ImSTLKAHhOQ7cbuYMIE5X7Ks65/ooiSGOe9rNHeHVANYTPQxrYZ0XQcJUswB2C65iCCCH'
       }
     });
 

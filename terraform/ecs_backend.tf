@@ -25,6 +25,10 @@ resource "aws_ecs_task_definition" "backend_task" {
         {
           name  = "SPRING_DATASOURCE_URL"
           value = "jdbc:postgresql://${aws_db_instance.webchatapp_db.address}:5432/${aws_db_instance.webchatapp_db.db_name}"
+        },
+        {
+          name  = "AWS_SQS_URL"
+          value = "${aws_sqs_queue.messages.id}"
         }
       ]
       logConfiguration = {

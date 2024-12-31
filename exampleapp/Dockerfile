@@ -1,6 +1,8 @@
 # Użyj obrazu JDK 21 jako bazowego
 FROM openjdk:21-jdk-slim AS build
 
+RUN sh -c "echo Current directory: && pwd"
+
 # Zainstaluj wymagane zależności
 RUN apt-get update && apt-get install -y wget unzip
 
@@ -16,11 +18,16 @@ ENV PATH=${MAVEN_HOME}/bin:${PATH}
 # Ustaw katalog roboczy
 WORKDIR /exampleapp
 
+# Tworzenie pliku konfiguracyjnego w Dockerfile
+# RUN echo -e "\nspring.datasource.url=jdbc:postgresql://${DB_HOST}:5432/${DB_NAME}" >> /src/main/resources/application.properties
+
 # Skopiuj plik pom.xml (dla Maven)
 COPY pom.xml .
 
 # Skopiuj plik zależności (np. .m2 lub .gradle)
 COPY src ./src
+
+COPY generated_files/springboot_cognito_config.json src/main/resources/cognito_config.json
 
 # Zbuduj aplikację Spring Boot
 RUN mvn clean package -DskipTests

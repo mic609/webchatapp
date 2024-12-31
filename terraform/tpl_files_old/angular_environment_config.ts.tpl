@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    apiUrl: `${window.location.hostname}:8080`
+    apiUrl: \`${backend_ip}:8080\`
   };

@@ -13,6 +13,8 @@ RUN npm install -g @angular/cli
 
 # Skopiuj resztę plików aplikacji
 COPY . .
+COPY generated_files/angular_cognito_config.json src/assets/config.json
+COPY generated_files/angular_environment_config.ts src/environments/environment.ts
 
 # Zbuduj aplikację Angular
 RUN npm run build --configuration=production

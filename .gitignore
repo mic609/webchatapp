@@ -48,4 +48,7 @@ reports/
 # Możesz dodać tutaj dodatkowe pliki z Angular CLI, jeśli są wrażliwe
 /src/environments/environment*.ts
 
-/terraform/
+/terraform/.terraform
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup

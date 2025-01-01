@@ -115,15 +115,17 @@
 			<artifactId>aws-java-sdk-cognitoidp</artifactId>
 			<version>1.12.777</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.awspring.cloud/spring-cloud-aws-starter-sqs -->
 		<dependency>
-			<groupId>software.amazon.awssdk</groupId>
-			<artifactId>sqs</artifactId>
-			<version>2.20.2</version>
+			<groupId>io.awspring.cloud</groupId>
+			<artifactId>spring-cloud-aws-starter-sqs</artifactId>
+			<version>3.2.1</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.awspring.cloud/spring-cloud-aws-starter -->
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-aws-messaging</artifactId>
-			<version>2.2.6.RELEASE</version>
+			<groupId>io.awspring.cloud</groupId>
+			<artifactId>spring-cloud-aws-starter</artifactId>
+			<version>3.1.1</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.json/json -->
 		<dependency>

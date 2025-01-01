@@ -27,8 +27,12 @@ resource "aws_ecs_task_definition" "backend_task" {
           value = "jdbc:postgresql://${aws_db_instance.webchatapp_db.address}:5432/${aws_db_instance.webchatapp_db.db_name}"
         },
         {
-          name  = "AWS_SQS_URL"
-          value = "${aws_sqs_queue.messages.id}"
+          name  = "AWS_SQS_PENDING_MESSAGES_URL"
+          value = "${aws_sqs_queue.pending_messages.id}"
+        },
+                {
+          name  = "AWS_SQS_PROCESSED_MESSAGES_URL"
+          value = "${aws_sqs_queue.processed_messages.id}"
         }
       ]
       logConfiguration = {

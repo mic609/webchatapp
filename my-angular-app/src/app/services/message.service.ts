@@ -22,7 +22,7 @@ export class MessageService {
     });
   }
 
-  sendMessage(message: Message): Observable<any> {
+  sendMessage(message: any): Observable<any> {
     const headers = this.createHeaders();
     return this.http.post(this.apiUrl, message, {headers});
   }

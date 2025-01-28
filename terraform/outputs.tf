@@ -7,7 +7,7 @@
 # }
 
 output "backend_ip" {
-  value = aws_lb.main.dns_name
+  value = module.ecs_backend.ip
   description = "The DNS name of the Load Balancer for the backend service."
 }
 

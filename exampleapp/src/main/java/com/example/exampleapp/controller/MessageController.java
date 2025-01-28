@@ -1,10 +1,8 @@
 package com.example.exampleapp.controller;
 
+import com.example.exampleapp.dto.MessageDto;
 import com.example.exampleapp.model.Message;
 import com.example.exampleapp.service.MessageService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -24,7 +22,7 @@ public class MessageController {
     }
 
     @PostMapping
-    public Message sendWebSocketMessage(@RequestBody Message message) {
-        return messageService.sendMessage(message); // Zachowuje logikę z sendMessage
+    public MessageDto sendWebSocketMessage(@RequestBody MessageDto messageDto) {
+        return messageService.sendMessage(messageDto);
     }
 }

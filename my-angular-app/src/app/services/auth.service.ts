@@ -132,9 +132,9 @@ export class AuthService {
     const cognitoIdentityServiceProvider = new AWS.CognitoIdentityServiceProvider({
       region: 'us-east-1',
       credentials: {
-        accessKeyId: 'ASIA5N6XPWXWVF4U3SBJ',
-        secretAccessKey: 'rBQoZel+95ZFbSP10tv9zpbwsPsKc/WzJ47CcuUz',
-        sessionToken: 'IQoJb3JpZ2luX2VjENv//////////wEaCXVzLXdlc3QtMiJHMEUCIEIOKY4mHmb2lqDOTecctXFbFmLs2yeDAFf6mbEUh6gFAiEAkMX9Ksor9YMskiKMGC23LA3WAQtpQ6seP73qseAqMrcqqQIIdBABGgw5MjMzMzMwMTUwMjEiDIG0dZdGoRkj55WvVCqGAvNdXXLeNZjGVraFnt+NSkHS625SmuHsdW9/sP2OX/I4lmvszSwTgFBgaLt9hi70edUfWDKZwCeP9H4PcZnIooAGTQf4aJxb8gX2JSV0Ab9SRicmX6ERf7E1RWfydwis2Mt6toIPQcHM8bRSwUNQUlm/AJpmD8xSOb7gd7AUARLGn1jrh8moi77PF+6g1+r9ZXtVZEno/QWF2qvLv+w2jqE22keTHAbDJmagTNv4UJ776qmkwOt71/0Y51QoDRQ2L54YgH3T+tan4gmiDKzzgF710t3MpDoyoDNKDiPLVU3stlk57wbk0nP2cihym2dh5/uzJvstYcWOaIFW3pJ52bsF4NcVVS4w9NXxuQY6nQGZA56RBDosPezT9DRdStLaXhSGia/L9iJFvDOIUJmasV/jfjXgsHnuh9iRrclHg5iJ1HaWfEkOtQsS38IWTI6JKVLwK9LmWJX5xEff92SR5crODUnaMbUCxjI779uEt+sTVscEeAin6bMQzHT32lHJ1P16bb1WNK7dkv8STpadQza04MzNE8LY92gDuFlZd3sPrQQ87RB0vwY0S9xh'
+        accessKeyId: '',
+        secretAccessKey: '',
+        sessionToken: ''
       }
     });
 

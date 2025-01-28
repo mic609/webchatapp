@@ -62,7 +62,7 @@ public class WebSecurityConfig {
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz -> authz
                 .requestMatchers("/api/auth/**").permitAll()
-                // .requestMatchers("/api/users/all-except-current").permitAll()
+                .requestMatchers("/api/hello").permitAll()
                 .anyRequest().authenticated())
             .addFilterBefore(jwtTokenVerifier, UsernamePasswordAuthenticationFilter.class);
         return http.build();

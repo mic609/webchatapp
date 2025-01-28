@@ -27,7 +27,7 @@ resource "local_file" "springboot_cognito_config" {
 data "template_file" "angular_environment_config" {
   template = file("${path.module}/tpl_files/angular_environment_config.ts.tpl")
   vars = {
-    backend_ip = aws_lb.main.dns_name
+    backend_ip = module.ecs_backend.ip
   }
 }
 

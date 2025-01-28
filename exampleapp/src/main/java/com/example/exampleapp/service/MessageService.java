@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.example.exampleapp.dto.MessageDto;
 import com.example.exampleapp.model.Message;
 import com.example.exampleapp.model.User;
 import com.example.exampleapp.repository.MessageRepository;
@@ -47,23 +48,26 @@ public class MessageService {
         User userReceiver = userRepository.findByUsername(usernameReceiver)
             .orElseThrow(() -> new IllegalArgumentException("User not found: " + usernameReceiver));
     
-        return messageRepository.findBySenderUsernameAndReceiverUsername(userSender.getUsername(), userReceiver.getUsername());
+        return messageRepository.findBySenderAndReceiverOrReceiverAndSender(userSender, userReceiver);
     }
 
-    public Message sendMessage(Message message) {
-        User sender = userRepository.findByUsername(message.getSender().getUsername())
-            .orElseThrow(() -> new IllegalArgumentException("Sender not found"));
-        User receiver = userRepository.findByUsername(message.getReceiver().getUsername())
-            .orElseThrow(() -> new IllegalArgumentException("Receiver not found"));
+    public MessageDto sendMessage(MessageDto messageDto) {
+        // User sender = userRepository.findByUsername(messageDto.getSender())
+        //     .orElseThrow(() -> new IllegalArgumentException("Sender not found"));
+        // User receiver = userRepository.findByUsername(messageDto.getReceiver())
+        //     .orElseThrow(() -> new IllegalArgumentException("Receiver not found"));
     
-        message.setSender(sender);
-        message.setReceiver(receiver);
-        message.setTimestamp(LocalDateTime.now());
+        // Message message = new Message();
+
+        // message.setContent(messageDto.getContent());
+        // message.setSender(sender);
+        // message.setReceiver(receiver);
+        // message.setTimestamp(LocalDateTime.now());
 
         // sendToSqs(message);
-        sqsTemplate.send(pendingMessagesQueueUrl, message);
+        sqsTemplate.send(pendingMessagesQueueUrl, messageDto);
 
-        return message;
+        return messageDto;
     }
 
     // private void sendToSqs(Message message){

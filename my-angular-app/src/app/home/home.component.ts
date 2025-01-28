@@ -60,9 +60,9 @@ export class HomeComponent{
       const message = {
         content: this.messageContent,
         timestamp: new Date(),
-        sender: this.loggedInUser,
-        receiver: this.selectedUser
-      } as Message;
+        sender: this.loggedInUser.username,
+        receiver: this.selectedUser.username
+      };
       this.messageService.sendMessage(message).subscribe(() => {
         this.messageContent = '';
         this.loadMessages();

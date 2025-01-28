@@ -8,7 +8,7 @@ resource "aws_sqs_queue" "pending_messages" {
 resource "aws_lambda_event_source_mapping" "sqs_trigger_pending_messages" {
   event_source_arn  = aws_sqs_queue.pending_messages.arn
   function_name     = aws_lambda_function.message_processor.function_name
-  batch_size        = 1 # Jedna wiadomość na raz
+  batch_size        = 1 # Jedna wiadomość na raz przetwarzana przez lambdę
   enabled           = true
 }
 

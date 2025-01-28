@@ -1,6 +1,0 @@
-{
-  "userpoolid": "us-east-1_SUJNa2KTu",
-  "clientid": "5b02elec6rk91gloestnfsmjaa",
-  "region": "us-east-1",
-  "jwksUrl": "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_SUJNa2KTu/.well-known/jwks.json"
-}

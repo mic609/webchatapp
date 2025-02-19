@@ -36,3 +36,7 @@ I independently designed and developed this project from scratch, including:
 - ✅ Message Processing – Integrated AWS SQS + Lambda for asynchronous message handling
 - ✅ Containerization & Deployment – Dockerized both frontend and backend, deployed using AWS ECS
 - ✅ Monitoring & Logging – Configured AWS CloudWatch for system monitoring and alerts
+
+🛠️ Deployment instruction
+
+You need to have Terraform installed, configured AWS CLI and Docker running. Once you got these tools, simply navigate to ```terraform/``` folder of the project and start the deployment with ```terraform plan```, ```terraform apply```. This process might take a while. To delete the infrastructure use ```terraform destroy```.

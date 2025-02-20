@@ -39,4 +39,9 @@ I independently designed and developed this project from scratch, including:
 
 🛠️ Deployment instruction
 
-You need to have Terraform installed, configured AWS CLI and Docker running. Once you got these tools, simply navigate to ```terraform/``` folder of the project and start the deployment with ```terraform plan```, ```terraform apply```. This process might take a while. To delete the infrastructure use ```terraform destroy```.
+You need to have Terraform installed, configured AWS CLI and Docker running. Once you got these tools, simply navigate to ```terraform/``` folder of the project and start the deployment with ```terraform plan```, ```terraform apply```. This process might take a while. To delete the infrastructure use ```terraform destroy```. If you want to access the website go to the AWS console. Search for ECS service. Then find "frontend-cluster". Go to tasks and choose the one which is running. You should be able to find the public ip of the site.
+
+🖼️ Preview
+
+![image](https://github.com/user-attachments/assets/4ddb1704-f7e4-4937-b547-19a6329f9c41)
+![image](https://github.com/user-attachments/assets/acc3eb07-3d6b-448d-866c-84ebef0bcd39)
